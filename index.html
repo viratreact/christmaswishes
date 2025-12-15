@@ -1,0 +1,253 @@
+<script type="text/javascript">
+  atOptions = {
+      'key' : 'bf02b372d42774a5f1c3a62d8064dd3e',
+      'format' : 'iframe',
+      'height' : 60,
+      'width' : 468,
+      'params' : {}
+  };
+</script>
+<script
+  type="text/javascript"
+  src="https://www.highperformanceformat.com/bf02b372d42774a5f1c3a62d8064dd3e/invoke.js"
+></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Merry Christmas ✨</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Premium Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@600&family=Inter:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--gold:#FFD700;
+--dark:#02140e;
+--red:#b71c1c;
+}
+
+*{box-sizing:border-box}
+
+body{
+margin:0;
+min-height:100vh;
+background:radial-gradient(circle at top,#0f4d3a,#02140e);
+font-family:'Inter',sans-serif;
+color:#fff;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+/* MAIN CARD */
+.card{
+width:100%;
+max-width:460px;
+background:rgba(0,0,0,.38);
+backdrop-filter:blur(14px);
+border-radius:30px;
+padding:26px 22px;
+text-align:center;
+box-shadow:0 35px 70px rgba(0,0,0,.7);
+}
+
+/* TITLES */
+.title{
+font-family:'Great Vibes',cursive;
+font-size:46px;
+color:var(--gold);
+text-shadow:0 0 30px gold;
+animation:glow 2s infinite alternate;
+}
+@keyframes glow{
+from{text-shadow:0 0 12px gold}
+to{text-shadow:0 0 40px #fff}
+}
+
+.sender{
+font-family:'Cinzel',serif;
+margin-top:6px;
+font-size:30px;
+font-weight:600;
+color:#ffeb3b;
+letter-spacing:1px;
+animation:senderGlow 1.6s infinite alternate;
+}
+@keyframes senderGlow{
+from{text-shadow:0 0 10px #ffeb3b}
+to{text-shadow:0 0 45px gold,0 0 70px #fff}
+}
+
+.typing{
+margin-top:6px;
+font-size:16px;
+opacity:.9;
+min-height:24px;
+}
+
+/* GIF + SNOW OVERLAY */
+.gif-card{
+position:relative;
+margin:22px 0;
+border-radius:22px;
+overflow:hidden;
+}
+.gif-card img{
+width:100%;
+display:block;
+border-radius:22px;
+box-shadow:0 0 35px rgba(255,215,0,.7);
+}
+
+/* ❄️ Snow only over GIF */
+.snow{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:2;
+}
+.snow span{
+position:absolute;
+top:-10px;
+color:#fff;
+font-size:12px;
+opacity:.85;
+animation:fall linear infinite;
+}
+@keyframes fall{
+to{transform:translateY(120%)}
+}
+
+/* VERSE */
+.verse{
+font-size:14px;
+font-style:italic;
+color:#eaeaea;
+margin:14px 0;
+animation:fade 2s;
+}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+
+/* INPUT */
+input{
+width:100%;
+padding:14px;
+border-radius:30px;
+border:none;
+font-size:16px;
+text-align:center;
+outline:none;
+}
+
+/* BUTTON */
+button{
+width:100%;
+margin-top:14px;
+padding:14px;
+border-radius:30px;
+border:none;
+font-size:16px;
+background:linear-gradient(135deg,var(--red),#ff9800);
+color:#fff;
+cursor:pointer;
+box-shadow:0 12px 28px rgba(0,0,0,.6);
+transition:.3s;
+}
+button:hover{transform:scale(1.05)}
+
+.footer{
+margin-top:10px;
+font-size:12px;
+color:#ccc;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🔔 Music -->
+<audio id="music" src="christmas.mp3" loop></audio>
+
+<div class="card">
+
+  <div class="title" id="title">Merry Christmas 🎄</div>
+  <div class="sender" id="sender"></div>
+  <div class="typing" id="typing"></div>
+
+  <!-- GIF WITH SNOW -->
+  <div class="gif-card">
+    <img src="christmas.gif">
+    <div class="snow" id="snow"></div>
+  </div>
+
+  <div class="verse" id="verse"></div>
+
+  <input id="name" placeholder="Type your name ✨">
+  <button onclick="share()">Create & Share 🎁</button>
+
+  <div class="footer">✝️ Blessings from Jesus Christ</div>
+</div>
+
+<script>
+/* MUSIC */
+document.body.addEventListener("click",()=>music.play().catch(()=>{}),{once:true});
+
+/* SNOW OVER GIF */
+for(let i=0;i<30;i++){
+let s=document.createElement("span");
+s.innerHTML="❄";
+s.style.left=Math.random()*100+"%";
+s.style.animationDuration=4+Math.random()*5+"s";
+s.style.fontSize=10+Math.random()*14+"px";
+document.getElementById("snow").appendChild(s);
+}
+
+/* TYPING */
+const msg="May peace, joy & love fill your heart this Christmas";
+let i=0;
+setInterval(()=>typing.innerText=msg.slice(0,i++%msg.length),110);
+
+/* VERSE */
+const verses=[
+"Glory to God in the highest — Luke 2:14",
+"For God so loved the world — John 3:16",
+"The Lord bless you and keep you — Numbers 6:24",
+"Jesus Christ is born — Matthew 1:21"
+];
+verse.innerText=verses[Math.floor(Math.random()*verses.length)];
+
+/* SENDER */
+const q=new URLSearchParams(location.search);
+const from=q.get("from");
+if(from)sender.innerText="From "+from;
+
+/* SHARE */
+function share(){
+const n=name.value.trim();
+if(!n)return alert("Enter your name");
+const link=location.origin+location.pathname+"?from="+encodeURIComponent(n);
+const text=`🎄 Merry Christmas 🎄\nFrom ${n}\n${link}`;
+navigator.share?navigator.share({text,url:link}):window.open("https://wa.me/?text="+encodeURIComponent(text));
+}
+</script>
+
+</body>
+</html>
+<script type="text/javascript">
+  atOptions = {
+      'key' : 'bf02b372d42774a5f1c3a62d8064dd3e',
+      'format' : 'iframe',
+      'height' : 60,
+      'width' : 468,
+      'params' : {}
+  };
+</script>
+<script
+  type="text/javascript"
+  src="https://www.highperformanceformat.com/bf02b372d42774a5f1c3a62d8064dd3e/invoke.js"
+></script>
